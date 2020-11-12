@@ -19,9 +19,11 @@
   - name: download and execute script
     shell: curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash
   - name: install gitlab
-    yum: 
-      name: EXTERNAL_URL="https://gitlab" gitlab-ee
-      state: installed  
+    shell: sudo EXTERNAL_URL="https://gitlab" yum install -y gitlab-ee   
+  
+  # yum: 
+  #     name: EXTERNAL_URL="https://gitlab" gitlab-ee
+  #     state: installed  
   
   
   #shell: sudo EXTERNAL_URL="https://gitlab" yum install -y gitlab-ee 
