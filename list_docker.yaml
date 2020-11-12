@@ -6,4 +6,4 @@
   tasks:
   - name: listing docker
     yum:
-      list: installed
+      list: docker
