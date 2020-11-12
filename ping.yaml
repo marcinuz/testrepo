@@ -1,6 +1,6 @@
 ---
 - name: ping ucp hosts
-  hosts: ucp
+  hosts: "{{ servers }}"
   remote_user: vagrant
 
   tasks:
