@@ -1,0 +1,8 @@
+---
+- name: ping ucp hosts
+  hosts: ucp
+  remote_user: vagrant
+
+  tasks:
+  - name: ping
+    ping:
