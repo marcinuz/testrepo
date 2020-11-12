@@ -1,0 +1,37 @@
+---
+- name: install gitlab
+  hosts: "{{ servers }}"
+  remote_user: vagrant
+
+  tasks:
+  - name: install curl
+    yum:
+      name:
+        - curl
+        - policycoreutils-python
+        - openssh-server
+      state: present
+  - name: sshd service enable and start
+    service:
+      name: sshd
+      enabled: yes
+      state: started
+  - name: download and execute script
+    shell: crlu https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash
+  - name: install gitlab
+    yum: 
+      name: EXTERNAL_URL="https://gitlab" gitlab-ee
+      state: installed  
+  
+  
+  #shell: sudo EXTERNAL_URL="https://gitlab" yum install -y gitlab-ee 
+
+
+
+
+
+
+# crlu https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash
+
+# sudo EXTERNAL_URL="https://gitlab.example.com" yum install -y gitlab-ee
+
