@@ -1,0 +1,9 @@
+---
+- name: ping ucp hosts
+  hosts: "{{ servers }}"
+  remote_user: vagrant
+
+  tasks:
+  - name: listing docker
+    yum:
+    list: installed
